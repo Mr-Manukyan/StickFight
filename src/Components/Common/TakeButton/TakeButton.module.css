@@ -1,0 +1,77 @@
+.handIconWrapper {
+    position: absolute;
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 7px;
+    right: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 130px;
+    background: rgba(15, 15, 15, 0.3);
+
+    cursor: pointer;
+    
+}
+
+.handIcon {
+    max-width: 60%;
+    max-height: 60%;
+    object-fit: cover;
+    margin-bottom: 5px;
+}
+.textWrapper{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid white;
+}
+
+.text{
+    color:white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 1.1em;
+    text-shadow: 1px 1px 1px #919191,
+        1px 2px 1px #919191,
+        1px 3px 1px #919191,
+        1px 3px 1px #919191,
+        1px 3px 1px #919191,
+        1px 3px 1px #919191,
+        1px 3px 1px #919191,
+        1px 3px 1px #919191,
+        1px 3px 1px #919191,
+        1px 3px 1px #919191,
+        1px 4px 3px rgba(16, 16, 16, 0.4),
+        1px 6px 3px rgba(16, 16, 16, 0.2),
+        1px 7px 5px rgba(16, 16, 16, 0.2),
+        1px 7px 10px rgba(16, 16, 16, 0.4);
+        
+}
+
+.textWrapper2 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+
+
+@media screen and (max-width:768px) {
+.handIconWrapper {
+        top: 11vh;
+        right: auto;
+        width: 110px;
+    
+    }
+    .text{
+        font-size: 0.9em;
+    }
+    .text2{
+        font-size: 0.8em;
+    }
+}

@@ -1,0 +1,13 @@
+
+{
+    "buttonName" : "Start",
+    "paragraph" : "Game for two",
+    "rules" : "Rules of the game",
+    "takeButtonText" : "take",
+    "playerName" : "player",
+    "errorParagraph" : "Rules broken !",
+    "playerStep" : "Your turn` Player",
+    "winner" : "Winner` Player",
+    "errorMassage" : "You broke the rules of the game. It is necessary to take matches from one line.",
+    "rulesText" : "15 matches are laid out in three rows, 5, 3, 7 matches in a row. Opponents take turns. In one move, you can take any number of matches from an arbitrary row (but only from one row). Whoever took the last match lost. The number of matches that you are allowed to take is unlimited. You can sweep the entire first row with the first move, taking all 7 matches from it. But you cannot, for example, take one match from the first row and another one from the second."
+}

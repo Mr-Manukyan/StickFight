@@ -1,0 +1,50 @@
+.container{
+    width: 80%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+
+.paragraph{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    color: #fff45b;
+    text-shadow: 1px 1px 1px #919191,
+                1px 2px 1px #919191,
+                1px 3px 1px #919191,
+                1px 3px 1px #919191,
+                1px 3px 1px #919191,
+                1px 3px 1px #919191,
+                1px 3px 1px #919191,
+                1px 3px 1px #919191,
+                1px 3px 1px #919191,
+                1px 3px 1px #919191,
+                1px 8px 3px rgba(16, 16, 16, 0.4),
+                1px 12px 3px rgba(16, 16, 16, 0.2),
+                1px 15px 25px rgba(16, 16, 16, 0.2),
+                1px 15px 30px rgba(16, 16, 16, 0.4);
+}
+
+.text {
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    letter-spacing: 1px;
+    margin-bottom: 40px;
+    text-align: justify;
+}
+
+@media screen and (max-width:539px) {
+    .paragraph {
+       font-size: 26px;
+    }
+    .text {
+        font-size: 18px;
+    }
+}

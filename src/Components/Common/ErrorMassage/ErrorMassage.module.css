@@ -1,0 +1,55 @@
+.errorMassageWrapper {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+}
+
+.paragraph{
+  color: rgb(252, 0, 0);
+  text-shadow: 1px 1px 1px #919191,
+        1px 1px 1px #919191,
+        1px 1px 1px #919191,
+        1px 1px 1px #919191,
+        1px 1px 1px #919191,
+        1px 1px 1px #919191,
+        1px 1px 1px #919191,
+        1px 1px 1px #919191,
+        1px 1px 1px #919191,
+        1px 1px 1px #919191;
+  text-transform: uppercase;
+  font-size: 1.4em;
+  margin-bottom: 50px;
+  letter-spacing: 2px;
+}
+
+.errorText{
+   color: #ffffff;
+   width: 100%;
+   text-shadow: 1px 1px 1px #919191,
+        1px 2px 1px #919191,
+        1px 1px 1px #919191,
+        1px 1px 1px #919191,
+        1px 1px 1px #919191,
+        1px 1px 1px #919191,
+        1px 1px 1px #919191,
+        1px 1px 1px #919191,
+        1px 1px 1px #919191,
+        1px 1px 1px #919191;
+   font-size: 1.2em;
+   text-align: center;
+   margin-bottom: 30px;
+   letter-spacing: 1px;
+}
+
+@media screen and (max-width:579px) {
+.paragraph {
+  font-size: 1.1em;
+    margin-bottom: 50px;
+    margin-top: 70px;
+    letter-spacing: 1px;
+  }
+}
+

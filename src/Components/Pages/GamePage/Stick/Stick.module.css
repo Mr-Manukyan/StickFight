@@ -1,0 +1,19 @@
+.stickWrapper{
+    margin-right: 30px;
+    cursor: pointer;
+}
+
+@media screen and (max-width:768px) {
+  .stickWrapper{
+   margin-right: 15px;
+  }
+}
+
+@media screen and (max-width:375px) {
+
+    .stick{
+        
+        height: 100px;
+        object-fit: contain;
+    }
+}
