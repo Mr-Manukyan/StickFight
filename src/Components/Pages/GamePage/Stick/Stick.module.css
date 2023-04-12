@@ -7,12 +7,20 @@
   .stickWrapper{
    margin-right: 15px;
   }
+      
+}
+
+@media screen and (max-width:479px) {
+
+    .stick {
+        height: 150px;
+        object-fit: contain;
+    }
 }
 
 @media screen and (max-width:375px) {
 
     .stick{
-        
         height: 100px;
         object-fit: contain;
     }

@@ -4,8 +4,18 @@
     top: 7px;
     z-index: 1;
 }
- 
 
+.container {
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+ 
  .arrow {
     position: absolute;
     content: "";
@@ -24,58 +34,18 @@
     max-height: 61px;
   }
 
-.container {
-  width: 100%;
-  height: 100%;
-  border-radius: 100%;
-  position: relative;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-
-
-.items {
-  width: 50px;
-  height: 50px;
-  margin: 5px;
-  opacity: 0;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.showBody {
-  position: absolute;
-  left: 0px;
-  top: 90px;
-  transition: all 0.5s ease;
-  background-color: rgba(6, 48, 0, 0.767);
-  height: 160px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  border-radius: 5px;
-
-}
 .body {
   position: absolute;
   background-color: rgba(6, 48, 0, 0.567);
   left: 0px;
   top: 90px;
   border-radius: 5px;
-  height: 0;
-  transition: height 0.3s ease;
 }
-.showItems {
+
+.items {
   width: 50px;
   height: 50px;
   margin: 5px;
-  opacity: 1;
-  transition:opacity 1.2s;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -86,7 +56,7 @@
   max-height: 80%;
 }
 
-.showItems:hover {
+.items:hover {
   box-shadow: inset 0 0 5px #ffbb1c, inset 0 0 10px #ffd167;
   transition: .3s;
   border-radius: 3px;
@@ -115,13 +85,6 @@
   height: 6px;
 }
 
-.showBody {
-  left: 0px;
-  top: 67px;
-  width: 50px;
-  height: 130px;
-}
-
 .body{
   left: 0px;
   top: 67px;
@@ -134,11 +97,6 @@
   margin: 3px;
 }
 
-.showItems{
-  width: 45px;
-  height: 45px;
-  margin: 3px;
-}
 
 .flagIcon{
   max-width: 30px;
@@ -184,12 +142,6 @@
     height: 6px;
   }
 
-  .showBody {
-    left: 2px;
-    top: 57px;
-    width: 45px;
-    height: 110px;
-  }
 
   .body {
     left: 2px;
@@ -198,12 +150,6 @@
   }
 
   .items {
-    width: 40px;
-    height: 40px;
-    margin: 3px;
-  }
-
-  .showItems {
     width: 40px;
     height: 40px;
     margin: 3px;

@@ -79,7 +79,7 @@
 
 
 @media screen and (max-width:768px) {
-    .headerBody {
+.headerBody {
             height: 7vh;
         }
 .restartIconWrapper {
@@ -105,4 +105,33 @@
     font-size: 18px;
     font-weight: 500;
 }
+}
+
+@media screen and (max-width:479px) {
+
+
+    .restartIconWrapper {
+        width: 40px;
+        height: 40px;
+    }
+
+    .homeIconWrapper {
+        width: 40px;
+        height: 40px;
+    }
+
+    .stepWrapper {
+        padding: 5px 10px;
+        border-radius: 5px;
+    }
+
+    .paragraph {
+        color: white;
+        font-size: 14px;
+    }
+
+    .player {
+        font-size: 16px;
+        font-weight: 500;
+    }
 }

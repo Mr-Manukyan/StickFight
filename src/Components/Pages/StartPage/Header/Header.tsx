@@ -4,9 +4,9 @@ import { GameLogo } from '../../../Common/GameIcon/GameILogo'
 import style from './Header.module.css'
 import language from '../../../../Assets/icons/language.png'
 import infoIcon from '../../../../Assets/icons/infoButton.png'
-import { LanguageSelector } from '../../../Common/LanguageSelector/LanguageSelector'
 import { Modal } from '../../../Common/Modal/Modal'
 import { GameRules } from '../../../Common/GameRules/GameRules'
+import { ChooseLanguage } from '../../../Common/ChooseLanguage/ChooseLanguage'
 
 export const Header = () => {
   const [isShowInfoModal, setIsShowInfoModal] = useState(false)
@@ -29,7 +29,7 @@ export const Header = () => {
         />
         <GameLogo />
         <div className={style.languageContainer}>
-          <LanguageSelector />
+          <ChooseLanguage />
           <img src={language} alt='languageIcon' className={style.language} />
         </div>
       </div>
