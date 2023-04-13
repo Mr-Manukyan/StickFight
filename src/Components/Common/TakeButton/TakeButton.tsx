@@ -5,26 +5,16 @@ import handIcon from '../../../Assets/icons/hand.png'
 import { LanguageContext } from '../LanguageProvider/LanguageProvider'
 import { useAppDispatch, useAppSelector } from '../../../Hooks/hooks'
 import { gameActions } from '../../../Redux/Reducers/GameReducer'
-import {
-  getPlayer,
-  getSickets1ID,
-} from '../../../Redux/Selectors/GameSelectors'
-import { getSickets2ID } from '../../../Redux/Selectors/GameSelectors'
-import { getSickets3ID } from '../../../Redux/Selectors/GameSelectors'
+import { getPlayer } from '../../../Redux/Selectors/GameSelectors'
 
 export const TakeButton = () => {
   const { dictionary } = useContext(LanguageContext)
   const buttonName = dictionary.takeButtonText
-
   const player = useAppSelector(getPlayer)
-  const stickIDS1 = useAppSelector(getSickets1ID)
-  const stickIDS2 = useAppSelector(getSickets2ID)
-  const stickIDS3 = useAppSelector(getSickets3ID)
-
   const dispatch = useAppDispatch()
 
   const removeStisksHandler = () => {
-    dispatch(gameActions.removeSticks(stickIDS1, stickIDS2, stickIDS3))
+    dispatch(gameActions.removeSticks())
     dispatch(gameActions.removeSticksID())
     if (player === 1) {
       dispatch(gameActions.setPlayer(2))

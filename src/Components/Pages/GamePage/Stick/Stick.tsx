@@ -5,7 +5,7 @@ import stickActive from '../../../../Assets/icons/white-stick.png'
 import { useAppDispatch } from '../../../../Hooks/hooks'
 import { StickType } from '../../../../Types/GameTypes'
 import { gameActions } from '../../../../Redux/Reducers/GameReducer'
-import { memo, useState } from 'react'
+import { memo, useEffect, useState } from 'react'
 
 const active = {
   initial: {
@@ -45,6 +45,11 @@ export const Stick: React.FC<PropsType> = memo(
     setShowModal,
   }) => {
     const [isActive, setIsActive] = useState(false)
+
+    useEffect(() => {
+      setIsActive(stick.isActive)
+    }, [stick])
+
     const dispatch = useAppDispatch()
     const chooseStick = () => {
       if (
@@ -56,7 +61,7 @@ export const Stick: React.FC<PropsType> = memo(
       ) {
         if (!sticksID2Length && !sticksID3Length) {
           setIsActive(isActive => !isActive)
-          dispatch(gameActions.setSticks1ID(stick.id, isActive))
+          dispatch(gameActions.setSticks1ID(stick.id, !isActive))
         } else {
           setShowModal(true)
         }
@@ -64,7 +69,7 @@ export const Stick: React.FC<PropsType> = memo(
       if (stick.id === 6 || stick.id === 7 || stick.id === 8) {
         if (!sticksID1Length && !sticksID3Length) {
           setIsActive(isActive => !isActive)
-          dispatch(gameActions.setSticks2ID(stick.id, isActive))
+          dispatch(gameActions.setSticks2ID(stick.id, !isActive))
         } else {
           setShowModal(true)
         }
@@ -81,7 +86,7 @@ export const Stick: React.FC<PropsType> = memo(
       ) {
         if (!sticksID1Length && !sticksID2Length) {
           setIsActive(isActive => !isActive)
-          dispatch(gameActions.setSticks3ID(stick.id, isActive))
+          dispatch(gameActions.setSticks3ID(stick.id, !isActive))
         } else {
           setShowModal(true)
         }

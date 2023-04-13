@@ -1,6 +1,6 @@
 import { useContext } from 'react'
 import { useAppSelector } from '../../../../Hooks/hooks'
-import { AnimatePresence } from 'framer-motion'
+import { AnimatePresence, LayoutGroup, motion } from 'framer-motion'
 import {
   getAllStick1,
   getAllStick2,
@@ -19,7 +19,9 @@ import { ErrorMassage } from '../../../Common/ErrorMassage/ErrorMassage'
 import { ModalWin } from '../../../Common/ModalWin/ModalWin'
 import { LanguageContext } from '../../../Common/LanguageProvider/LanguageProvider'
 
-export const GameZone = () => {
+type PropsType = {}
+
+export const GameZone: React.FC<PropsType> = ({}) => {
   const [showModal, setShowModal] = useState(false)
 
   const sticks1 = useAppSelector(getAllStick1)
@@ -29,6 +31,7 @@ export const GameZone = () => {
   const sticks1ID = useAppSelector(getSickets1ID)
   const sticks2ID = useAppSelector(getSickets2ID)
   const sticks3ID = useAppSelector(getSickets3ID)
+
   const player = useAppSelector(getPlayer)
   const { dictionary } = useContext(LanguageContext)
   const winner = dictionary.winner
@@ -50,56 +53,63 @@ export const GameZone = () => {
           <ModalWin player={player} winner={winner} buttonName={buttonName} />
         )}
       </AnimatePresence>
+      <LayoutGroup>
+        <motion.div
+          className={style.container}
+          transition={{ ease: 'easeOut', duration: 0.3 }}
+        >
+          <AnimatePresence>
+            {sticks1ID.length || sticks2ID.length || sticks3ID.length ? (
+              <TakeButton />
+            ) : null}
+          </AnimatePresence>
 
-      <div className={style.container}>
-        <AnimatePresence>
-          {sticks1ID.length || sticks2ID.length || sticks3ID.length ? (
-            <TakeButton />
-          ) : null}
-        </AnimatePresence>
-        <div className={style.stick1Wrapper}>
-          <AnimatePresence>
-            {sticks1.map(stick => (
-              <Stick
-                key={stick.id}
-                stick={stick}
-                sticksID1Length={sticks1ID.length}
-                sticksID2Length={sticks2ID.length}
-                sticksID3Length={sticks3ID.length}
-                setShowModal={setShowModal}
-              />
-            ))}
-          </AnimatePresence>
-        </div>
-        <div className={style.stick2Wrapper}>
-          <AnimatePresence>
-            {sticks2.map(stick => (
-              <Stick
-                key={stick.id}
-                stick={stick}
-                sticksID1Length={sticks1ID.length}
-                sticksID2Length={sticks2ID.length}
-                sticksID3Length={sticks3ID.length}
-                setShowModal={setShowModal}
-              />
-            ))}
-          </AnimatePresence>
-        </div>
-        <div className={style.stick3Wrapper}>
-          <AnimatePresence>
-            {sticks3.map(stick => (
-              <Stick
-                key={stick.id}
-                stick={stick}
-                sticksID1Length={sticks1ID.length}
-                sticksID2Length={sticks2ID.length}
-                sticksID3Length={sticks3ID.length}
-                setShowModal={setShowModal}
-              />
-            ))}
-          </AnimatePresence>
-        </div>
-      </div>
+          <div className={style.stick1Wrapper}>
+            <AnimatePresence>
+              {sticks1.map(stick => (
+                <Stick
+                  key={stick.id}
+                  stick={stick}
+                  sticksID1Length={sticks1ID.length}
+                  sticksID2Length={sticks2ID.length}
+                  sticksID3Length={sticks3ID.length}
+                  setShowModal={setShowModal}
+                />
+              ))}
+            </AnimatePresence>
+          </div>
+
+          <div className={style.stick2Wrapper}>
+            <AnimatePresence>
+              {sticks2.map(stick => (
+                <Stick
+                  key={stick.id}
+                  stick={stick}
+                  sticksID1Length={sticks1ID.length}
+                  sticksID2Length={sticks2ID.length}
+                  sticksID3Length={sticks3ID.length}
+                  setShowModal={setShowModal}
+                />
+              ))}
+            </AnimatePresence>
+          </div>
+
+          <div className={style.stick3Wrapper}>
+            <AnimatePresence>
+              {sticks3.map(stick => (
+                <Stick
+                  key={stick.id}
+                  stick={stick}
+                  sticksID1Length={sticks1ID.length}
+                  sticksID2Length={sticks2ID.length}
+                  sticksID3Length={sticks3ID.length}
+                  setShowModal={setShowModal}
+                />
+              ))}
+            </AnimatePresence>
+          </div>
+        </motion.div>
+      </LayoutGroup>
     </>
   )
 }

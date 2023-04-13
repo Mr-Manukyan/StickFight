@@ -13,8 +13,8 @@ const sticks1 = [
   { id: 1, isActive: false },
   { id: 2, isActive: false },
   { id: 3, isActive: false },
-  { id: 4, stick: 4, isActive: false },
-  { id: 5, stick: 5, isActive: false },
+  { id: 4, isActive: false },
+  { id: 5, isActive: false },
 ]
 const sticks2 = [
   { id: 6, isActive: false },
@@ -22,28 +22,6 @@ const sticks2 = [
   { id: 8, isActive: false },
 ]
 const sticks3 = [
-  { id: 9, isActive: false },
-  { id: 10, isActive: false },
-  { id: 11, isActive: false },
-  { id: 12, isActive: false },
-  { id: 13, isActive: false },
-  { id: 14, isActive: false },
-  { id: 15, isActive: false },
-]
-
-const restart1 = [
-  { id: 1, isActive: false },
-  { id: 2, isActive: false },
-  { id: 3, isActive: false },
-  { id: 4, stick: 4, isActive: false },
-  { id: 5, stick: 5, isActive: false },
-]
-const restart2 = [
-  { id: 6, isActive: false },
-  { id: 7, isActive: false },
-  { id: 8, isActive: false },
-]
-const restart3 = [
   { id: 9, isActive: false },
   { id: 10, isActive: false },
   { id: 11, isActive: false },
@@ -73,6 +51,16 @@ export const gameReducer = (
     case SET_STICK_1_IDS:
       return {
         ...state,
+        sticks1: state.sticks1.map(stick => {
+          if (stick.id === action.id) {
+            return {
+              ...stick,
+              isActive: action.isActive,
+            }
+          }
+          return stick
+        }),
+
         sticks1ID: state.sticks1ID.includes(action.id)
           ? state.sticks1ID.filter(id => id !== action.id)
           : [...state.sticks1ID, action.id],
@@ -81,6 +69,15 @@ export const gameReducer = (
     case SET_STICK_2_IDS:
       return {
         ...state,
+        sticks2: state.sticks2.map(stick => {
+          if (stick.id === action.id) {
+            return {
+              ...stick,
+              isActive: action.isActive,
+            }
+          }
+          return stick
+        }),
         sticks2ID: state.sticks2ID.includes(action.id)
           ? state.sticks2ID.filter(id => id !== action.id)
           : [...state.sticks2ID, action.id],
@@ -89,6 +86,15 @@ export const gameReducer = (
     case SET_STICK_3_IDS:
       return {
         ...state,
+        sticks3: state.sticks3.map(stick => {
+          if (stick.id === action.id) {
+            return {
+              ...stick,
+              isActive: action.isActive,
+            }
+          }
+          return stick
+        }),
         sticks3ID: state.sticks3ID.includes(action.id)
           ? state.sticks3ID.filter(id => id !== action.id)
           : [...state.sticks3ID, action.id],
@@ -97,15 +103,9 @@ export const gameReducer = (
     case REMOVE_STICKS:
       return {
         ...state,
-        sticks1: state.sticks1.filter(
-          stick => !action.stickIDS1.includes(stick.id)
-        ),
-        sticks2: state.sticks2.filter(
-          stick => !action.stickIDS2.includes(stick.id)
-        ),
-        sticks3: state.sticks3.filter(
-          stick => !action.stickIDS3.includes(stick.id)
-        ),
+        sticks1: state.sticks1.filter(stick => stick.isActive !== true),
+        sticks2: state.sticks2.filter(stick => stick.isActive !== true),
+        sticks3: state.sticks3.filter(stick => stick.isActive !== true),
       }
 
     case REMOVE_STICKS_ID:
@@ -125,9 +125,9 @@ export const gameReducer = (
     case SET_RESTART:
       return {
         ...state,
-        sticks1: restart1,
-        sticks2: restart2,
-        sticks3: restart3,
+        sticks1: sticks1,
+        sticks2: sticks2,
+        sticks3: sticks3,
       }
 
     default:
@@ -159,16 +159,9 @@ export const gameActions = {
       isActive,
     } as const),
 
-  removeSticks: (
-    stickIDS1: number[],
-    stickIDS2: number[],
-    stickIDS3: number[]
-  ) =>
+  removeSticks: () =>
     ({
       type: REMOVE_STICKS,
-      stickIDS1,
-      stickIDS2,
-      stickIDS3,
     } as const),
 
   removeSticksID: () =>
